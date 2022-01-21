@@ -14,11 +14,38 @@ class director:
 
         while self.is_playing:
 
+            self.do_body_game()
+            self.show_score()
             self.get_inputs()
-            self.do_updates()
-            self.do_outputs()
+
+    def do_body_game(self):
+
+        if not self.is_playing:
+            return
+
+        card = self.hilo.show_card
+        print (f"The card is: {card}")
+
+        guess_card = input("Higher or lower? [h/l] ")
+        
+
+
+    def show_score(self):
+
+        if not self.is_playing:
+            return
+
+        next_card = self.hilo.show_card
 
     def get_inputs(self):
 
-        ask_player = input("")
-            
+        ask_player = input("Play again? [y/n] ")
+        self.is_playing = (ask_player == "y")
+        print()
+
+        if self.is_playing:
+            card = self.hilo.show_card
+            print (f"The card is: {card}")
+
+    
+        
