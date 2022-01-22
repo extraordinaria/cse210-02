@@ -1,11 +1,11 @@
-from game.die import Die
+from game.card import Card
 
 class director:
 
 
     def __init__(self):
 
-        self.hilo = Die()
+        self.hilo = Card()
         self.is_playing = True
         self.score = 300
         self.total_score = 0
@@ -36,6 +36,7 @@ class director:
             return
 
         next_card = self.hilo.show_card
+        print(f"Next card was: {next_card}")
 
     def get_inputs(self):
 

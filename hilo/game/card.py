@@ -1,6 +1,6 @@
 import random
 
-class Die:
+class Card:
 
     def __init__(self):
         self.value_card = 0
