@@ -7,8 +7,10 @@ class director:
 
         self.hilo = Card()
         self.is_playing = True
-        self.score = 300
-        self.total_score = 0
+        self.score = 0
+        self.total_score = 300
+        self.guess_card = ""
+        self.card = 0
 
     def start_game(self):
 
@@ -23,10 +25,10 @@ class director:
         if not self.is_playing:
             return
 
-        card = self.hilo.show_card
-        print (f"The card is: {card}")
+        self.card = self.hilo.show_card
+        print (f"The card is: {self.card}")
 
-        guess_card = input("Higher or lower? [h/l] ")
+        self.guess_card = input("Higher or lower? [h/l] ")
         
 
 
@@ -37,6 +39,14 @@ class director:
 
         next_card = self.hilo.show_card
         print(f"Next card was: {next_card}")
+
+        if self.hilo.h_l_card == self.guess_card:
+            self.score = 100
+        else:
+            self.score = -75
+        self.total_score += self.score
+        print(f"Your score is {self.total_score}")
+
 
     def get_inputs(self):
 
