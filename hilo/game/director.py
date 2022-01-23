@@ -48,7 +48,7 @@ class Director:
         print(f"Next card was: {self.next_card}")
 
 
-        if self.h_l_card == self.guess_card:
+        if self.hilo.h_l_card == self.guess_card:
             self.score = 100
         else:
             self.score = -75
