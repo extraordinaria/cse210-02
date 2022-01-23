@@ -10,7 +10,8 @@ class Director:
         self.score = 0
         self.total_score = 300
         self.guess_card = ""
-        self.card = 0
+        self.hilo.show_card()
+        self.card_number = self.hilo.value_card
 
     def start_game(self):
 
@@ -25,8 +26,9 @@ class Director:
         if not self.is_playing:
             return
 
-        self.card = self.hilo.value_card
-        print (f"The card is: {self.card}")
+        
+        self.hilo.show_card()  
+        print (f"The card is: {self.card_number}")
 
         self.guess_card = input("Higher or lower? [h/l] ")
         
@@ -37,8 +39,10 @@ class Director:
         if not self.is_playing:
             return
 
-        next_card = self.hilo.value_card_2
-        print(f"Next card was: {next_card}")
+        self.hilo.show_card()
+        self.hilo.compare_card()
+        self.next_card = self.hilo.value_card_2
+        print(f"Next card was: {self.next_card}")
 
         if self.hilo.h_l_card == self.guess_card:
             self.score = 100
@@ -54,6 +58,7 @@ class Director:
             ask_player = input("Play again? [y/n] ")
             self.is_playing = (ask_player == "y")
             print()
+            self.card_number = self.next_card
 
         else:
             return
