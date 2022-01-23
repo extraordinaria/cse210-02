@@ -31,6 +31,7 @@ class Director:
         
         self.hilo.show_card()  
         print (f"The card is: {self.hilo.value_card}")
+        #print (f"The card is: {self.card_number}")
 
         self.guess_card = input("Higher or lower? [h/l] ")
         while self.guess_card != "h" and self.guess_card != "l":
@@ -65,7 +66,7 @@ class Director:
                 ask_player = input("You have enter a correct answer: Play again? [y/n] ")
             self.is_playing = (ask_player == "y")
             print()
-
+            self.card_number = self.hilo.value_card_2
         else:
             self.is_playing = False
             
