@@ -18,7 +18,7 @@ class Card:
     def compare_card(self):
         if self.value_card_2 > self.value_card:
             self.h_l_card = "h"
-        else:
+        elif self.value_card_2 < self.value_card:
             self.h_l_card = "l"
         
 
