@@ -74,6 +74,9 @@ class Director:
 
             if self.is_playing:
                 self.card_number = self.next_card
+
+        else:
+            self.is_playing = False
             
 
         
