@@ -1,6 +1,6 @@
 from game.card import Card
 
-class director:
+class Director:
 
 
     def __init__(self):
@@ -25,7 +25,7 @@ class director:
         if not self.is_playing:
             return
 
-        self.card = self.hilo.show_card
+        self.card = self.hilo.value_card
         print (f"The card is: {self.card}")
 
         self.guess_card = input("Higher or lower? [h/l] ")
@@ -37,7 +37,7 @@ class director:
         if not self.is_playing:
             return
 
-        next_card = self.hilo.show_card
+        next_card = self.hilo.value_card_2
         print(f"Next card was: {next_card}")
 
         if self.hilo.h_l_card == self.guess_card:
@@ -50,13 +50,13 @@ class director:
 
     def get_inputs(self):
 
-        ask_player = input("Play again? [y/n] ")
-        self.is_playing = (ask_player == "y")
-        print()
+        if self.total_score > 0:
+            ask_player = input("Play again? [y/n] ")
+            self.is_playing = (ask_player == "y")
+            print()
 
-        if self.is_playing:
-            card = self.hilo.show_card
-            print (f"The card is: {card}")
+        else:
+            return
 
     
         
